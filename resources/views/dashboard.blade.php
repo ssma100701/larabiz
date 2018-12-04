@@ -26,13 +26,15 @@
                             <th></th>
                             <th></th>
                         </tr>
+
+                        @foreach ($listings as $listing)
                         <tr>
-                            @foreach ($listings as $listing)
-                                <th>{{ $listing->name }}</th>
-                                <th></th>
-                                <th></th>
-                            @endforeach
+                            <th>{{ $listing->name }}</th>
+                            <th><a href="/listings/{{ $listing->id }}/edit" class="float-right btn btn-primary">Edit</a></th>
+                            <th></th>
                         </tr>
+                        @endforeach
+
                     </table>
 
                 @endif
