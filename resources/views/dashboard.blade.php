@@ -31,7 +31,12 @@
                         <tr>
                             <th>{{ $listing->name }}</th>
                             <th><a href="/listings/{{ $listing->id }}/edit" class="float-right btn btn-primary">Edit</a></th>
-                            <th></th>
+                            <th>
+                                {!! Form::open(['action' => ['ListingsController@destroy',$listing->id],'method' => 'POST','class' => 'float-left', 'onsubmit' => 'return confirm("Are you sure?")']) !!}
+                                    {{ Form::hidden('_method','DELETE') }}
+                                    {{ Form::bsSubmit('Delete',['class' => 'btn btn-danger']) }}
+                                {!! Form::close() !!}
+                            </th>
                         </tr>
                         @endforeach
 
